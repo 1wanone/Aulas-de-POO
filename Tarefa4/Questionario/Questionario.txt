@@ -1,0 +1,44 @@
+1. 
+Herança é o conceito que permite que uma classe herde os métodos e atributos de outra classe. Seu objetivo é evitar repetição de código, facilitar a manutenção e a organização.
+
+2.
+Uma superclasse é uma classe geral mais genérica, que fornece atributos e métodos a outras classes. A subclasse é a classe que herda esses atributos e métodos, podendo modificar e adicionar outras funcionalidades.
+
+3.
+A classe Pessoa é algo mais genérico, enquanto a classe Estudante é algo mais detalhado que, no contexto de herança, herda funcionalidades de Pessoa. Logo, todo estudante é uma pessoa, mas nem toda pessoa é um estudante, já que a classe Pessoa abrange diversas outras classes como Médico, por exemplo.
+
+4.
+Porque private é para manter os atributos privados de tudo, até mesmo das subclasses. Para resolver isso, pode-se usar o protected, que permite que a subclasse acesse os atributos da superclasse, ou até mesmo usando get e set.
+
+5.
+Usa-se uma seta sem preenchimento da subclasse para a superclasse.
+Ex: Subclasse ----|> Superclasse
+
+6.
+Na subclasse, usa-se o super para se referir à superclasse.
+Ela serve para chamar o construtor e para acessar métodos, por exemplo:
+
+Construtor da subclasse Desenvolvedor:
+public Desenvolvedor(String nome, int matricula, String linguagemPrincipal, String nivel) {
+    super(nome, matricula);
+    this.linguagemPrincipal = linguagemPrincipal;
+    this.nivel = nivel;
+}
+Método exibirDados da superclasse sendo usado na subclasse Desenvolvedor com sobrescrita e o super:
+@Override
+public void exibirDados() {
+    super.exibirDados();
+    System.out.println("Linguagem Principal: " + this.linguagemPrincipal);
+    System.out.println("Nível: " + this.nivel);
+}
+
+7. 
+É mais vantajoso porque evita repetição de código, por exemplo, evita que os atributos nome e idade sejam repetidos em todas as classes.
+
+8.
+A classe Transporte teria atributos genéricos como cor, ano e potência, e o método dirigir. A classe TransporteTerrestre herdaria os atributos e métodos da classe Transporte, e teria novos atributos como tipo de roda, tipo de infraestrutura em que pode se locomover. A classe TransporteAéreo herdaria de Transporte e teria novos atributos como altitude máxima, tipo de aerofólio. A classe Carro herdaria de TransporteTerrestre, e Avião e Helicóptero herdariam de TransporteAéreo.
+
+O papel da herança nessa modelagem é organizar o código e evitar repetição.
+
+9.
+O Java tenta chamar um construtor padrão sem parâmetros. Se o construtor da superclasse tiver parâmetros, o código não vai compilar.
